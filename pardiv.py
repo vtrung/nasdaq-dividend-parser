@@ -35,15 +35,20 @@ class stock:
 
 if __name__ == "__main__":
 	if len(argv) > 1:
-		script, symbol = argv
-		s = stock(symbol)
-		s.get()
-		s.print()
+                symbols = argv[1:]
+                for symbol in symbols:
+                    s = stock(symbol)
+                    s.get()
+                    s.print()
+                    print("===========")
 	else:
-		tickers = ["GE","IBM", "AAPL"]
-		for sym in tickers:
-			s = stock(sym)
-			s.get()
-			s.print()
-			print("============")
+                print("No arguments found")
+                print("Please pass in any number of stock symbol you wish to lookup")
+                print("Example: python3 pardiv.py IBM AAPL GE")
+		#tickers = ["GE","IBM", "AAPL"]
+		#for sym in tickers:
+		#	s = stock(sym)
+		#	s.get()
+		#	s.print()
+		#	print("============")
 	
